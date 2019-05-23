@@ -2,7 +2,7 @@ import OpenSimplexNoise from 'open-simplex-noise';
 
 class Noise {
     constructor(length, range = [1, 100], radius = 2, seed = null) {
-	this.noise = new OpenSimplexNoise(seed || Date.now());
+	this.noise = new OpenSimplexNoise(seed || Date.now() + Math.random());
 	this.length = length;
 	this.a = 0;
 	this.range = range;
