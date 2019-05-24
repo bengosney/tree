@@ -1,5 +1,6 @@
 import Context from './Context';
 import noisyLine from './noisyLine';
+import Flower from './Flower';
 
 class Tree {
     constructor(x, y, width, height) {
@@ -16,7 +17,7 @@ class Tree {
 	let cx = x;
 	let cy = y;
 
-	const maxLevels = 5;
+	const maxLevels = 4;
 
 	const getLength = (x1, y1, x2, y2) => {
 	    const x = x1 - x2;
@@ -51,10 +52,9 @@ class Tree {
 	    line.draw();
 	    ctx.strokeStyle = '#3d3d3d';
 	    ctx.lineWidth = maxLevels - level;
-	    ctx.stroke();
-
+	    ctx.stroke();	  
 	    
-	    if (level !== maxLevels) {
+	    if (level <= maxLevels) {
 		const _draw = (aMod) => {
 		    const cx = x2;
 		    const cy = y2;
@@ -68,6 +68,11 @@ class Tree {
 		    const ny = Math.sin(a) * (tx - cx) - Math.cos(a) * (ty - cy) + cy;
 
 		    drawLimb(cx, cy, nx, ny, level + 1);
+
+		    if (level === maxLevels) {
+			const flower = new Flower(nx, ny, 5);
+			flower.draw();
+		    }
 		};
 
 		const m = .2;
