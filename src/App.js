@@ -63,11 +63,11 @@ class App extends Component {
 
 	this.draw();
 		
-	this.nextFrame();
+	//this.nextFrame();
     }
 
     nextFrame() {
-	//this.rAF = requestAnimationFrame(() => this.updateAnimationState());
+	this.rAF = requestAnimationFrame(() => this.updateAnimationState());
     }
 
     clearFrame() {
