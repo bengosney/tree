@@ -77,8 +77,9 @@ class App extends Component {
 	const light = '#d1f2e8';
 	const dark = '#6d7580';
 
-	//const grd = ctx.createLinearGradient(0, height, 0, 0);
-	const grd = ctx.createRadialGradient(0, 0, width, width / 2, height / 2, 0);
+	const _width = Math.max(750, width);
+	const grd = ctx.createRadialGradient(0, 0, _width, width / 2, height / 2, 0);
+
 	grd.addColorStop(1, light);
 	grd.addColorStop(0, dark);
 	
