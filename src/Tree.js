@@ -70,7 +70,7 @@ class Tree {
 		    drawLimb(cx, cy, nx, ny, level + 1);
 
 		    if (level === maxLevels) {
-			const flower = new Flower(nx, ny, 5);
+			const flower = new Flower(nx, ny, randomRange(3, 6));
 			flower.draw();
 		    }
 		};
