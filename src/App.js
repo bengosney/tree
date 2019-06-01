@@ -73,7 +73,7 @@ class App extends Component {
 	this.setState({ drawing: true });
 	setTimeout(() => {
 	    this.rAF = requestAnimationFrame(() => this.updateAnimationState());
-	}, 10);
+	}, 100);
     }
 
     clearFrame() {
