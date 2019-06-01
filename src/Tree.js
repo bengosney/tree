@@ -48,10 +48,14 @@ class Tree {
 	    const length = getLength(x1, y1, x2, y2);
 	    const line = new noisyLine(x1, y1, x2, y2, 10, (length / 500));
 
+	    const lineWidth = maxLevels - level;
+	    
 	    ctx.beginPath();
 	    line.draw();
 	    ctx.strokeStyle = '#3d3d3d';
-	    ctx.lineWidth = maxLevels - level;
+	    ctx.lineWidth = lineWidth;
+	    ctx.shadowColor = "rgba(0, 0, 0, .1)";
+	    ctx.shadowBlur = lineWidth * 2;
 	    ctx.stroke();	  
 	    
 	    if (level <= maxLevels) {
