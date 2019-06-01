@@ -40,7 +40,7 @@ class Flower {
 	    ctx.arc(point[0], point[1], petalRadius, 0, 2 * Math.PI);
 	    ctx.fillStyle = petalColour;
 	    ctx.shadowColor = "rgba(0, 0, 0, .05)";
-	    ctx.shadowBlur = 6;
+	    ctx.shadowBlur = petalRadius * 3;
 	    ctx.fill();
 	    
 	    point = rot(x, y, point[0], point[1], petalRot);
