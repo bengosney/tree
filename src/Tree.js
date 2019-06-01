@@ -76,8 +76,10 @@ class Tree {
 		};
 
 		const m = .2;
+		const minLimbs = 2;
+		const maxLimbs = 5;
 
-		const limbs = randomRange(2, 5);
+		const limbs = level === 0 ? maxLimbs : randomRange(minLimbs, maxLimbs);
 		const diff = 90 / (limbs - 1);
 		for (let i = 0 ; i < limbs ; i++) {
 		    const a = -45 + (diff * i) * randomRange(1 + m, 1 - m);
