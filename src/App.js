@@ -17,7 +17,8 @@ class App extends Component {
 	    width: 150,
 	    lenth: 100,
 	    range: 20,
-	    yOffset: null	    
+	    yOffset: null,
+	    drawing: false
 	};
 	
 	this.drawing = false;
@@ -40,13 +41,15 @@ class App extends Component {
     }
     
     updateWindowDimensions() {
-	const { innerWidth, innerHeight } = window;
+	const { clientWidth, clientHeight } = document.documentElement;
 	const { range } = this.state;
 
-	const length = Math.floor(innerWidth / 2);
+	console.log(clientWidth, clientHeight);
+
+	const length = Math.floor(clientWidth / 2);
 	const noise = new Noise(length, [-range, range]);
 
-	this.setState({ width: innerWidth, height: innerHeight, noise: noise, length: length }, () => {
+	this.setState({ width: clientWidth, height: clientHeight, noise: noise, length: length }, () => {
 	    this.initObjects();
 	    this.nextFrame();
 	});
@@ -62,11 +65,13 @@ class App extends Component {
 	this.clearFrame();
 
 	this.draw();
-		
+
+	this.setState({ drawing: false });
 	//this.nextFrame();
     }
 
     nextFrame() {
+	this.setState({ drawing: true });
 	this.rAF = requestAnimationFrame(() => this.updateAnimationState());
     }
 
@@ -99,9 +104,7 @@ class App extends Component {
 
     initObjects() {
 	const { width, height } = this.state;
-
 	const renderElements = [];
-
 	const tree = new Tree(width / 2, height * .9, width * .8, height * .8);
 
 	renderElements.push(tree);
@@ -114,11 +117,12 @@ class App extends Component {
     }
         
     render() {
-	const { width, height } = this.state;
+	const { width, height, drawing } = this.state;
 
         return (
 	    <div>
-              <div>
+	      <button onClick={ () => this.nextFrame() } disabled={ drawing } className="newTree" >New Tree</button>
+	      <div>
 		<canvas ref="canvas" width={ width } height={ height } />
               </div>
             </div>
