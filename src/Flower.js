@@ -8,7 +8,7 @@ class Flower {
     }
 
     draw() {
-	const { x, y, radius } = this;
+	const { x, y, radius } = this;	
 
 	const rot = (cx, cy, x, y, angle) => {
 	    const radians = (Math.PI / 180) * angle;
@@ -25,7 +25,7 @@ class Flower {
 	};
 
 	const petalCount = 5;
-	const petalRadius = radius / 2;
+	const petalRadius = radius / 4;
 	const petalRot = 360 / petalCount;
 
 
