@@ -1,4 +1,3 @@
-import Context from './Context';
 import Petal from './Petal';
 
 class Flower {
@@ -9,11 +8,7 @@ class Flower {
     }
 
     draw() {
-	const ctx = Context.get();
 	const { x, y, radius } = this;
-
-	const petalColour = '#fedee2';
-	const centerColour = '#e72262';
 
 	const rot = (cx, cy, x, y, angle) => {
 	    const radians = (Math.PI / 180) * angle;

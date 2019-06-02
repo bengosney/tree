@@ -13,25 +13,11 @@ class Petal {
 	const ctx = Context.get();
 	const { x, y, radius, cx, cy } = this;
 
-	const rot = (cx, cy, x, y, angle, degrees = true) => {
-	    const radians = degrees ? (Math.PI / 180) * angle : angle;
-	    const cos = Math.cos(radians);
-	    const sin = Math.sin(radians);
-	    const nx = (cos * (x - cx)) + (sin * (y - cy)) + cx;
-	    const ny = (cos * (y - cy)) - (sin * (x - cx)) + cy;
-	    
-	    return [nx, ny];
-	};
-
 	const pointOnArc = (cx,cy,radius,radianAngle) => {
 	    const x = cx + radius * Math.cos(radianAngle);
 	    const y = cy + radius * Math.sin(radianAngle);
 
 	    return [x, y];
-	};
-
-	const randomRange = (min, max) => {
-	    return min + Math.random() * (max - min);
 	};
 
 	const a = Math.atan2(y - cy, x - cx);

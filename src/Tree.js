@@ -11,7 +11,7 @@ class Tree {
     }
 
     draw() {
-	const { x, y, width, height } = this;
+	const { x, y, height } = this;
 	const ctx = Context.get();
 
 	let cx = x;
@@ -36,10 +36,6 @@ class Tree {
 	    const theta = Math.atan2(x, y) * (180 / Math.PI);
 	    
 	    return theta + 90;
-	};
-
-	const scale = (value, r1, r2) => { 
-	    return (value - r1[0]) * (r2[1] - r2[0]) / (r1[1] - r1[0]) + r2[0];
 	};
 
 	const s = .45;

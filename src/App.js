@@ -2,7 +2,6 @@ import React, { Component } from 'react';
 import './App.css';
 
 import Noise from './Noise';
-import Colour from './Colour';
 import Tree from './Tree';
 
 import Context from './Context';
