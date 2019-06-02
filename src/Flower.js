@@ -37,7 +37,7 @@ class Flower {
 	let point = rot(x, y, x, y + petalRadius, randomRange(0, 360));
 	
 	for (let i = 0; i < petalCount; i++) {
-	    const petal = new Petal(point[0], point[1], petalRadius);
+	    const petal = new Petal(point[0], point[1], petalRadius, x, y);
 	    petal.draw();
 	    
 	    point = rot(x, y, point[0], point[1], petalRot);
