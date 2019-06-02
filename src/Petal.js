@@ -27,7 +27,7 @@ class Petal {
 	const a = Math.atan2(y - cy, x - cx);
 	const m = 90 * (Math.PI / 180);
 
-	const r = radius; // * randomRange(0.65, 0.8);
+	const r = radius;
 
 	const p1 = pointOnArc(x, y, r, a - m);
 	const p2 = pointOnArc(x, y, r, a + m);
@@ -37,13 +37,11 @@ class Petal {
 	const e2 = pointOn(cx, cy, p2[0], p2[1], ep);
 
 	const mainColour = '#fedee2';
-	const fadeColour = '#fff7f8';
-	const centerColour = '#ffff30';
+	const fadeColour = '#ffe8eb';
 	const grd = ctx.createRadialGradient(cx, cy, r * 2, cx, cy, 0);
 
 	grd.addColorStop(0, mainColour);
 	grd.addColorStop(0.75, fadeColour);
-	grd.addColorStop(1, centerColour);
 	
 	
 	ctx.beginPath();
@@ -53,7 +51,7 @@ class Petal {
 	ctx.lineTo(cx, cy);
 	
 	ctx.fillStyle = grd;
-	ctx.shadowColor = "rgba(0, 0, 0, .05)";
+	ctx.shadowColor = "rgba(0, 0, 0, .075)";
 	ctx.shadowBlur = radius * 3;
 	ctx.fill();
     }
