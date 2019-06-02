@@ -88,8 +88,13 @@ class Tree {
 	    }
 	};
 
-	
-	drawLimb(cx, cy, cx, cy - (height * s));
+	const flowerOnly = false;
+	if (flowerOnly) {
+	    const f = new Flower(cx, cy / 2, height / 2);
+	    f.draw();
+	} else {
+	    drawLimb(cx, cy, cx, cy - (height * s));
+	}
     }    
 }
 
