@@ -44,8 +44,6 @@ class App extends Component {
 	const { clientWidth, clientHeight } = document.documentElement;
 	const { range } = this.state;
 
-	console.log(clientWidth, clientHeight);
-
 	const length = Math.floor(clientWidth / 2);
 	const noise = new Noise(length, [-range, range]);
 
