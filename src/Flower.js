@@ -1,4 +1,5 @@
 import Context from './Context';
+import Petal from './Petal';
 
 class Flower {
     constructor(x, y, radius) {
@@ -36,12 +37,8 @@ class Flower {
 	let point = rot(x, y, x, y + petalRadius, randomRange(0, 360));
 	
 	for (let i = 0; i < petalCount; i++) {
-	    ctx.beginPath();
-	    ctx.arc(point[0], point[1], petalRadius, 0, 2 * Math.PI);
-	    ctx.fillStyle = petalColour;
-	    ctx.shadowColor = "rgba(0, 0, 0, .05)";
-	    ctx.shadowBlur = petalRadius * 3;
-	    ctx.fill();
+	    const petal = new Petal(point[0], point[1], petalRadius);
+	    petal.draw();
 	    
 	    point = rot(x, y, point[0], point[1], petalRot);
 	}
