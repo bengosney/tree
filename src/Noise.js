@@ -1,14 +1,18 @@
 import OpenSimplexNoise from 'open-simplex-noise';
 
+const noiseMap = new OpenSimplexNoise(Date.now() + Math.random());
+
 class Noise {
     constructor(length, range = [1, 100], radius = 2, seed = null) {
-	this.noise = new OpenSimplexNoise(seed || Date.now() + Math.random());
+	this.noise = noiseMap;
 	this.length = length;
 	this.a = 0;
 	this.range = range;
 	this.r = radius;
 
 	this.start = null;
+
+	this.xOffset = seed || Math.floor(Math.random() * 100000);
 	
 	this.findStart();
 	this.reset();
@@ -76,7 +80,7 @@ class Noise {
 
 	this.a += step;
 
-	return this.scale(this.noise.noise2D(x, y), [0, 1], this.range);
+	return this.scale(this.noise.noise2D(x + this.xOffset, y), [0, 1], this.range);
     }
 }
 
