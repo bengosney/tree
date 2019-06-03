@@ -16,22 +16,32 @@ a {
     color: #fff;
 }
 
-.newTree {
+.controls {
     position: absolute;
     top: 10px;
     left: 10px;
-    background: none;
-    border: 2px solid #fff;
-    color: #fff;
-    padding: 5px 10px;
-    font-size: .9em;
-    border-radius: 5px;
-    box-shadow: 0 0 8px 0 rgb(97, 97, 97, .25);
-}
 
-.newTree:disabled,
-.newTree[disabled] {
-    opacity: .4;
+    display: flex;
+    flex-direction: column;
+
+    width: 125px;
+    max-width: 25%;
+
+    button {
+	background: none;
+	border: 2px solid #fff;
+	color: #fff;
+	padding: 5px 10px;
+	font-size: .9em;
+	border-radius: 5px;
+	box-shadow: 0 0 8px 0 rgba(97, 97, 97, .25);
+	margin-bottom: .75em;
+
+	&:disabled,
+	&[disabled] {
+	    opacity: .4;
+	}
+    }
 }
 
 .drawing {

@@ -118,13 +118,34 @@ class App extends Component {
     draw() {
 	this.renderElements.map(e => e.draw());
     }
+
+    save() {
+	const ctx = Context.get();
+	const { canvas } = ctx;
+
+	const data = canvas.toDataURL('image/png');
+
+        const element = document.createElement('a');
+        element.setAttribute('href', data);
+        element.setAttribute('download', 'tree.png');
+        
+        element.style.display = 'none';
+        document.body.appendChild(element);
+        
+        element.click();
+        
+        document.body.removeChild(element);
+    }
         
     render() {
 	const { width, height, drawing } = this.state;
 
         return (
 	    <div className={ drawing ? 'drawing' : '' }>
-	      <button onClick={ () => this.newTree() } disabled={ drawing } className="newTree" >New Tree</button>
+              <div className="controls">
+	        <button onClick={ () => this.newTree() } disabled={ drawing } className="newTree" >New Tree</button>
+	        <button onClick={ () => this.save() } disabled={ drawing } className="save" >Save PNG</button>
+              </div>
 	      <div>
 		<canvas ref="canvas" width={ width } height={ height } />
               </div>
