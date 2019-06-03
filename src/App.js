@@ -103,6 +103,8 @@ class App extends Component {
 	const renderElements = [];
 	const tree = new Tree(width / 2, height * .9, width * .8, height * .8);
 
+	this.renderElements = [];
+	
 	renderElements.push(tree);
 	
 	this.renderElements = renderElements;
