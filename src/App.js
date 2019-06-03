@@ -32,9 +32,7 @@ class App extends Component {
     componentDidMount() {
 	const canvas = this.refs.canvas;
 	Context.set(canvas.getContext("2d", { alpha: false }));
-
 	
-	this.rAF = requestAnimationFrame(() => this.updateAnimationState());
 	this.updateWindowDimensions();
 	window.addEventListener('resize', this.updateWindowDimensions);
     }
