@@ -101,7 +101,7 @@ class App extends Component {
     initObjects() {
 	const { width, height } = this.state;
 	const renderElements = [];
-	const tree = new Tree(width / 2, height * .9, width * .8, height * .8);
+	const tree = new Tree(width / 2, height * .9, width * .8, height * .8, 4, 5);
 
 	this.renderElements = [];
 	

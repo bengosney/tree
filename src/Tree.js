@@ -3,11 +3,14 @@ import noisyLine from './noisyLine';
 import Flower from './Flower';
 
 class Tree {
-    constructor(x, y, width, height) {
+    constructor(x, y, width, height, levels, limbs) {
 	this.x = x;
 	this.y = y;
 	this.width = width;
 	this.height = height;
+
+	this.levels = levels;
+	this.limbs = limbs;
     }
 
     draw() {
@@ -17,7 +20,7 @@ class Tree {
 	let cx = x;
 	let cy = y;
 
-	const maxLevels = 4;
+	const maxLevels = this.levels;
 
 	const getLength = (x1, y1, x2, y2) => {
 	    const x = x1 - x2;
@@ -77,7 +80,7 @@ class Tree {
 
 		const m = .2;
 		const minLimbs = 2;
-		const maxLimbs = 5;
+		const maxLimbs = this.limbs;
 
 		const limbs = level === 0 ? maxLimbs : randomRange(minLimbs, maxLimbs);
 		const diff = 90 / (limbs - 1);
