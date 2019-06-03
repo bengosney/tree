@@ -65,10 +65,15 @@ class App extends Component {
     }
 
     nextFrame() {
+	this.rAF = requestAnimationFrame(() => this.updateAnimationState());
+    }
+
+    newTree() {
 	this.setState({ drawing: true });
 	setTimeout(() => {
-	    this.rAF = requestAnimationFrame(() => this.updateAnimationState());
+	    this.nextFrame();
 	}, 100);
+
     }
 
     clearFrame() {
@@ -119,7 +124,7 @@ class App extends Component {
 
         return (
 	    <div className={ drawing ? 'drawing' : '' }>
-	      <button onClick={ () => this.nextFrame() } disabled={ drawing } className="newTree" >New Tree</button>
+	      <button onClick={ () => this.newTree() } disabled={ drawing } className="newTree" >New Tree</button>
 	      <div>
 		<canvas ref="canvas" width={ width } height={ height } />
               </div>
